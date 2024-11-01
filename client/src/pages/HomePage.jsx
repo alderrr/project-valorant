@@ -8,6 +8,7 @@ import AgentDesc from '../components/AgentDesc'
 const HomePage = () => {
 
     const [agents, setAgents] = useState([])
+    const [selectedAgent, setSelectedAgent] = useState(null)
 
     useEffect(() => {
         async function fetchAgents() {
@@ -25,17 +26,14 @@ const HomePage = () => {
         <>
             <div className='flex min-h-screen bg-gray-900 text-white'>
                 <div className='flex-1'>
-                    <SideBar agents={agents} setAgents={setAgents}/>
+                    <SideBar agents={agents} setSelectedAgent={setSelectedAgent}/>
                 </div>
                 <div className='flex-1'>
-                    <AgentDisp agents={agents} setAgents={setAgents}/>
+                    <AgentDisp agent={selectedAgent}/>
                 </div>
                 <div className='flex-1'>
                     <AgentDesc/>
                 </div>
-                {/* <div className='bg-gray-900 text-white min-h-screen p-5'>
-                    <h1>{JSON.stringify(agents)}</h1>
-                </div> */}
             </div>
         </>
     )

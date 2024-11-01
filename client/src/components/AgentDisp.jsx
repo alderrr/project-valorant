@@ -1,7 +1,17 @@
-const AgentDisp = ({agents}) => {
+const AgentDisp = ({agent}) => {
     return (
         <>
-            <h1>AgentDisp</h1>
+            {agent ? (
+                <div className="flex justify-center items-center h-full">
+                    <img 
+                        className="h-full object-cover"
+                        src={agent?.fullPortrait} 
+                        alt={agent?.displayName}
+                    />
+                </div>
+            ) : (
+                <div></div>
+            )}
         </>
     )
 }
